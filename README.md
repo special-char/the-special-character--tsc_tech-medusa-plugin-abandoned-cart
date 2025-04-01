@@ -58,10 +58,6 @@ module.exports = defineConfig({
 })
 ```
 
-
-NOTE: You must have one notification provider configured to send email.
-
-
 ## Usage
 
 Open the storefront at localhost:8000 and choose one of the following options:
@@ -107,6 +103,8 @@ export async function GET(req: NextRequest, { params }: { params: Params }) {
 ```
 
 Run the storefront login to your account and add products in the cart and you will get an email about the products that were abandoned in the cart.
+
+NOTE: You must have one notification provider configured to send email.
 
 ## Contribution
 
