@@ -1,31 +1,16 @@
 import { CartDTO, CustomerDTO } from "@medusajs/framework/types";
 
-const abandonedCartTemplate = (data: CartDTO & { customer: CustomerDTO }) => {
+const abandonedCartTemplate = (
+  data: CartDTO & { customer: CustomerDTO },
+  frontendUrl: string
+) => {
   const name =
     `${data?.customer?.first_name || ""} ${
       data?.customer?.last_name || ""
     }`.trim() || data?.customer?.email;
+  console.log("frontendUrl", frontendUrl);
 
-  const recoverUrl = `http://localhost:8000/cart/recover/${data.id}`;
-
-  const itemsHtml = data?.items
-    ?.map((item) => {
-      const image = item.thumbnail;
-      const title = item.product_title;
-      return `
-      <div class="item">
-          <img src=${image} alt=${title}>
-          <div class="item-details">
-              <strong>${title}</strong>
-              <p>${item.subtitle || ""}</p>
-              <p>Quantity: <strong>${item.quantity}</strong></p>
-              <p>Price: <strong>$${((item?.unit_price as number) / 100).toFixed(
-                2
-              )}</strong></p>
-          </div>
-      </div>`;
-    })
-    .join("");
+  const recoverUrl = `${frontendUrl}/cart/recover/${data.id}`;
 
   return `
 <!DOCTYPE html>

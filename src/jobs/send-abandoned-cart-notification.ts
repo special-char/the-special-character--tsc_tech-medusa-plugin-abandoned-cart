@@ -14,6 +14,7 @@ export default async function abandonedCartJob(container: MedusaContainer) {
 
   // For testing
   // oneDayAgo.setMinutes(oneDayAgo.getMinutes() - 1);
+
   let limit = 100;
   let offset = 0;
   let totalCount = 0;
