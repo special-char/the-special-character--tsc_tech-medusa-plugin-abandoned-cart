@@ -10,11 +10,10 @@ export default async function abandonedCartJob(container: MedusaContainer) {
 
   const oneDayAgo = new Date();
 
-  // oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+  oneDayAgo.setDate(oneDayAgo.getDate() - 1);
 
   // For testing
-  oneDayAgo.setMinutes(oneDayAgo.getMinutes() - 1); // For testing
-
+  // oneDayAgo.setMinutes(oneDayAgo.getMinutes() - 1);
   let limit = 100;
   let offset = 0;
   let totalCount = 0;
